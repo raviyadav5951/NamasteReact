@@ -1,24 +1,48 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+
+/**
+ * Header
+ *  -Logo
+ * - Nav items
+ * Body
+ *  Search
+ *  RestaurantContainer
+ *    RestaurantCard
+ * Footer
+ *  Copyright
+ *  Links
+ *  Address
+ *  Contact
+ */
+//React.createElement => ReactElement(object)=> HTMLElement(render)
+
 const heading = React.createElement(
   "h1",
   { id: "heading" },
   "Hello World from react!"
 );
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child" }, [
-    React.createElement("h1", {}, "I am h1 tag"),
-    React.createElement("h2", {}, "I am h2 tag"),
-  ]),
+console.log(heading);
 
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "I am c2-h1 tag"),
-    React.createElement("h2", {}, "I am c2-h2 tag"),
-  ]),
-]);
+//JSX (gets transpiled before it reaches JS engine)- Parcel(Babel)
+
+//JSX=>Babel transpiles it to React.createElement=>React element=>JS object-HTML element(render)
+
+const jsxHeading = (
+  <h1 className="head" tabIndex={1}>
+    Hello world from JSX
+  </h1>
+);
+
+const HeaderComponent = () => {
+  return(
+  <h1 className="head" tabIndex={1}>
+    Hello world from JSX HeaderComponent
+  </h1>)
+}
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(parent);
+root.render(<HeaderComponent/>);
