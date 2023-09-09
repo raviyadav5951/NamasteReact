@@ -66,3 +66,6 @@ import{CDN_URL} from 'path'
 - Diff Algorithm calculates diff and rerenders the UI
 ### Why React is fast
 - It efficiently manipulates the virtual DOM
+## seEffect
+- useEffect will be called after the component is rendered
+
