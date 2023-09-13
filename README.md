@@ -59,13 +59,47 @@ export const CDN_URL
 import{CDN_URL} from 'path'
 
 ## DOM
+
 - React works on virtual DOM
 - Reconciliation(React 16 React Fiber)
 - Virtual DOM is representation of actual DOM (if printing component)
 - It will display JS object representation of actual HTML tags(Which is real DOM)
 - Diff Algorithm calculates diff and rerenders the UI
+
 ### Why React is fast
+
 - It efficiently manipulates the virtual DOM
+
 ## seEffect
+
 - useEffect will be called after the component is rendered
 
+## Routing(react-dom-router)
+
+- react-dom-router used to provide routing support
+- Client side routing and single page app interchange the component and loads it.
+- <Outlet></Outlet> from react-dom-router automcatically replaces the components based on the path added as string. Loads children inside outlet
+- <Link to={destination_component_routename}></Link> : this will load the destination component (under the hood uses a href)
+- useParams hook from react-dom-router fetches the params that are passed to route and we can use this param to make the component dynamic like restaturant menu page which is dynamic and loads different menu based on the restaurant id.
+
+## class component
+
+- Parent constructor->Parent render-> componentdidmount
+
+- If Parent component is having child component then
+  Parent constructor->Parent render-> Child constructor->Child render-> child componentDidmount-> Parent didcomponentMount
+
+- To complete the cleanup function in useEffect return callback fun from inside the useEffect
+
+useEffect(()=>{
+const timer= setInterval(()=>{
+log("timer called)
+},1000)
+
+return ()=>{
+clearInterval(timer)
+}
+})
+- https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+## Ep-9 (custom hook)
+-

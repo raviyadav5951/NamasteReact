@@ -60,3 +60,9 @@
   background-color: "#f0f0f0";
   margin: 20px;
 }
+
+.user-card {
+  margin: 5;
+  padding: 5;
+  border: 1px solid blue;
+}
