@@ -4,13 +4,19 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_API } from "../utils/constant";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../hooks/useOnlineStatus";
+import useRestaurantList from '../hooks/useRestaurantList';
 
 const Body = () => {
   const [listOfRestaurants, setListofRestaurants] = useState([]);
   const [filterlistOfRestaurants, setFilterListofRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
 
+  const onlineStatus = useOnlineStatus();
+  const results=useRestaurantList()
+
   useEffect(() => {
+    console.log("this useEffect called for api");
     fetchData();
   }, []);
 
@@ -30,6 +36,12 @@ const Body = () => {
         ?.restaurants
     );
   };
+
+  if (onlineStatus == false) {
+    return (
+      <h1>Looks like you are offline, please check your internet connection</h1>
+    );
+  }
 
   //conditional rendering
   return listOfRestaurants === 0 ? (

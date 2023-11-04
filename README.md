@@ -100,6 +100,26 @@ return ()=>{
 clearInterval(timer)
 }
 })
+
 - https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
 ## Ep-9 (custom hook)
--
+
+- creating useRestaurantHook which takes resID and returns restaurant information from where its called.
+
+- export and import like the function
+- created useOnlineStatus which returns online and offline status
+
+### Bundling
+- Bundling the complete app inside one js file will make it huge, so we have two options 
+- Chunking, code splting, dynamic bundling, on demand loading,lazy loading
+- Above process creates smaller chunks of the bundle
+- How to make smaller bundles and what is present in smaller bundles
+- Bundle should have code for each major feature.(spliting the logic)
+- e.g makemytrip one bundle for hotels, bus booking, flight booking
+- We load Grocery component only when user clicks on grocery option
+- We need to use lazy(()=>import("path of component" )) to import and assign to cons nameOfCOmponent
+- We need to wrap dynamic comp inside Suspense and provide a jsx as fallback to show during the rendering finally completed by react
+
+
+
