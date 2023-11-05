@@ -121,5 +121,9 @@ clearInterval(timer)
 - We need to use lazy(()=>import("path of component" )) to import and assign to cons nameOfCOmponent
 - We need to wrap dynamic comp inside Suspense and provide a jsx as fallback to show during the rendering finally completed by react
 
-
+## Ep-10 (Styling)
+- sass and scss
+- styled-components
+- material ui components
+- bootstrap and chakra ui
 
