@@ -16,6 +16,8 @@ import UserContext from "./utils/UserContext";
 // lazy Loading
 // on demand loading
 // dynamix imoprt
+import appStore from "./store/appStore";
+import { Provider } from "react-redux";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -34,12 +36,14 @@ const AppLayout = () => {
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-      <div className="app">
-        <Header />
-        <Outlet />
-      </div>
-    </UserContext.Provider>
+    <Provider store={appStore}>
+      <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+        <div className="app">
+          <Header />
+          <Outlet />
+        </div>
+      </UserContext.Provider>
+    </Provider>
   );
 };
 

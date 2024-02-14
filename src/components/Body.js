@@ -22,21 +22,37 @@ const Body = () => {
   }, []);
 
   const fetchData = async () => {
-    const data = await fetch(
-      RESTAURANT_LIST_API
-    );
+    const data = await fetch(RESTAURANT_LIST_API);
 
     const json = await data.json();
 
+    if (
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    ) {
+      setListOfRestraunt(
+        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      );
+    } else {
+      setListOfRestraunt(
+        json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    }
+
     // Optional Chaining
-    setListOfRestraunt(
-      json?.data.success.cards[4].gridWidget.gridElements.infoWithStyle
-        .restaurants
-    );
-    setFilteredRestaurant(
-      json?.data.success.cards[4].gridWidget.gridElements.infoWithStyle
-        .restaurants
-    );
+
+    if (
+      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    ) {
+      setFilteredRestaurant(
+        json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      );
+    } else {
+      setFilteredRestaurant(
+        json?.data?.success?.cards[4]?.gridWidget?.gridElements?.infoWithStyle
+          ?.restaurants
+      );
+    }
   };
 
   const onlineStatus = useOnlineStatus();
