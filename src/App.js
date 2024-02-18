@@ -18,6 +18,7 @@ import UserContext from "./utils/UserContext";
 // dynamix imoprt
 import appStore from "./store/appStore";
 import { Provider } from "react-redux";
+import Cart from "./components/Cart";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -79,6 +80,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:resId",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
     errorElement: <Error />,
